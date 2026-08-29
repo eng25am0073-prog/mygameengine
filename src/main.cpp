@@ -3,7 +3,7 @@
 
 int main()
 {
-    engine::Log::Info("Engine (Phase 2) initializing.");
+    engine::Log::Info("Engine (Phase 3) initializing.");
 
     engine::Game game;
     game.Run();

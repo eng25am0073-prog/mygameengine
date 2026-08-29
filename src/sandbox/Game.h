@@ -19,6 +19,7 @@ public:
 
 protected:
     void OnStart() override;
+    void OnUpdate(float deltaTime) override;
     void OnRender() override;
     void OnShutdown() override;
 
@@ -26,6 +27,8 @@ private:
     std::unique_ptr<renderer::Shader> m_shader;
     renderer::VertexArray m_vertexArray;
     renderer::VertexBuffer m_vertexBuffer;
+    float m_offsetX = 0.0f;
+    float m_offsetY = 0.0f;
 };
 
 } // namespace engine

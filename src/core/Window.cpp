@@ -67,6 +67,13 @@ bool Window::ShouldClose() const
     return m_handle ? glfwWindowShouldClose(m_handle) != 0 : true;
 }
 
+void Window::RequestClose()
+{
+    if (m_handle) {
+        glfwSetWindowShouldClose(m_handle, GLFW_TRUE);
+    }
+}
+
 void Window::PollEvents()
 {
     if (m_handle) {

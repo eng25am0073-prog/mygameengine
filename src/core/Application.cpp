@@ -1,4 +1,5 @@
 #include "core/Application.h"
+#include "core/Input.h"
 #include "core/Log.h"
 #include "core/Window.h"
 
@@ -31,6 +32,7 @@ void Application::Run()
         m_window.reset();
         return;
     }
+    input::Initialize(m_window->GetNativeWindow());
 
     if (!gladLoadGL(reinterpret_cast<GLADloadfunc>(glfwGetProcAddress))) {
         Log::Error("Failed to initialize OpenGL functions (GLAD).");
@@ -61,6 +63,10 @@ void Application::Run()
         previousTime = currentTime;
 
         m_window->PollEvents();
+
+        if (input::IsKeyPressed(input::Key::Escape)) {
+            m_window->RequestClose();
+        }
 
         OnUpdate(deltaTime);
         OnRender();

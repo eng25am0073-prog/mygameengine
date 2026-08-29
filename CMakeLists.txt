@@ -32,6 +32,7 @@ target_include_directories(glad PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glad/i
 add_executable(engine
     src/main.cpp
     src/core/Application.cpp
+    src/core/Input.cpp
     src/core/Log.cpp
     src/core/Window.cpp
     src/renderer/Shader.cpp

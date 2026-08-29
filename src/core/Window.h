@@ -17,9 +17,12 @@ public:
     bool IsValid() const;
 
     bool ShouldClose() const;
+    void RequestClose();
     void PollEvents();
     void SwapBuffers();
     void SetVsync(bool enabled);
+
+    GLFWwindow* GetNativeWindow() const { return m_handle; }
 
     int GetWidth() const { return m_width; }
     int GetHeight() const { return m_height; }
